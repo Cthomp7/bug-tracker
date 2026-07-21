@@ -4,16 +4,16 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
   port: 5432
-  username: ${POSTGRES_USER}
-  password: ${POSTGRES_PASSWORD}
+  username: <%= ENV.fetch("POSTGRES_USER") %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
 
 development:
   <<: *default
-  database: ${POSTGRES_DB_DEV}
+  database: <%= ENV.fetch("POSTGRES_DB_DEV") %>
 
 test:
   <<: *default
-  database: ${POSTGRES_DB_TEST}
+  database: <%= ENV.fetch("POSTGRES_DB_TEST") %>
 
 production:
   <<: *default
