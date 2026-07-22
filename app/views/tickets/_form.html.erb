@@ -23,17 +23,17 @@
 
   <div>
     <%= form.label :status, style: "display: block" %>
-    <%= form.text_field :status %>
+    <%= form.select :status, Ticket.statuses.keys.map { |key| [key.titleize, key] }, prompt: "Select status" %>
   </div>
 
   <div>
     <%= form.label :priority, style: "display: block" %>
-    <%= form.text_field :priority %>
+    <%= form.select :priority, Ticket.priorities.keys.map { |key| [key.titleize, key] }, prompt: "Select priority" %>
   </div>
 
   <div>
     <%= form.label :severity, style: "display: block" %>
-    <%= form.select :severity, ["Low", "Medium", "High", "Critical"], prompt: "Select severity" %>
+    <%= form.select :severity, Ticket.severities.keys.map { |key| [key.titleize, key] }, prompt: "Select severity" %>
   </div>
 
   <div>
